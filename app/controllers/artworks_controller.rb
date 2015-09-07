@@ -33,6 +33,8 @@ class ArtworksController < ApplicationController
 	end
 
 	def destroy
+		@artwork.destroy
+		redirect_to root_path
 	end
 
 	private
