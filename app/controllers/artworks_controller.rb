@@ -1,6 +1,7 @@
 class ArtworksController < ApplicationController
 	before_action :find_artwork, only: [:show, :edit, :update, :destroy]
 	def index
+		@artworks=Artwork.all.order('created_at DESC')
 	end
 
 	def show
@@ -24,6 +25,11 @@ class ArtworksController < ApplicationController
 	end
 
 	def update
+		if @artwork.update(artwork_params)
+			redirect_to @artwork
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy

@@ -1,3 +1,8 @@
 <%= image_tag @artwork.image.url(:medium) %>
 <%= @artwork.caption %>
 <%= @artwork.description %>
+
+<%= link_to 'Edit', edit_artwork_path(@artwork) %>
+<%= link_to 'Delete', artwork_path(@artwork), 
+							method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= link_to 'Home', root_path %>

@@ -1,3 +1,9 @@
 <h1> This is an index</h1>
+<% @artworks.each do |artwork| %>
+	<%= link_to (image_tag artwork.image.url(:medium)), artwork %>
+	<%= link_to artwork.caption, artwork %>
+<% end %>
+<%= link_to 'New', new_artwork_path %>
+
 
 	
