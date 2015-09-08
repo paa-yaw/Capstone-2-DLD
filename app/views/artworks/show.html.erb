@@ -1,6 +1,16 @@
 <%= image_tag @artwork.image.url(:large) %>
 <%= @artwork.caption %>
 <%= @artwork.description %>
+<br>
+
+<%= pluralize(@artwork.comments.count, "Comment") %>
+<p>Comments</p>
+
+<% @comments.each do |comment| %>
+<%= comment.content %>
+<% end %>
+
+<%= render 'comments/form' %>
 
 <%= link_to 'Edit', edit_artwork_path(@artwork) %>
 <%= link_to 'Delete', artwork_path(@artwork), 
