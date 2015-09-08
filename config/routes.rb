@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-   resources :artworks
+   resources :artworks do 
+    resources :comments
+  end
 
    root 'artworks#index'
    
