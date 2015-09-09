@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
    resources :artworks do 
+    member do 
+      post 'like'
+    end
     resources :comments
   end
 

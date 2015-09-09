@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908143519) do
+ActiveRecord::Schema.define(version: 20150909132321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 20150908143519) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "artwork_id"
+  end
+
+  create_table "likes", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.uuid     "artwork_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

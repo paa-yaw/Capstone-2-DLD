@@ -1,11 +1,12 @@
 class ArtworksController < ApplicationController
-	before_action :find_artwork, only: [:show, :edit, :update, :destroy]
+	before_action :find_artwork, only: [:show, :edit, :update, :destroy, :like]
 	def index
 		@artworks=Artwork.all.order('created_at DESC')
 	end
 
 	def show
 		@comments=Comment.where(artwork_id: @artwork)
+		@like=Like.where(artwork_id: @artwork)
 	end
 
 	def new
@@ -38,6 +39,15 @@ class ArtworksController < ApplicationController
 		redirect_to root_path
 	end
 
+	def like
+		@like=Like.new(artwork: @artwork)
+
+		if @like.save
+			redirect_to @artwork
+		end		
+	end
+
+	
 	private
 
 	def find_artwork

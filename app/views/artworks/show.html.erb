@@ -1,7 +1,12 @@
+<%= link_to 'Home', root_path %>
+<br>
 <%= image_tag @artwork.image.url(:large) %>
 <%= @artwork.caption %>
 <%= @artwork.description %>
 <br>
+<%= pluralize(@artwork.likes.count, "Like") %>
+
+<%= button_to 'Like', like_artwork_path, method: :post %>
 
 <%= pluralize(@artwork.comments.count, "Comment") %>
 <p>Comments</p>
@@ -15,4 +20,3 @@
 <%= link_to 'Edit', edit_artwork_path(@artwork) %>
 <%= link_to 'Delete', artwork_path(@artwork), 
 							method: :delete, data: {confirm: 'Are you sure?'} %>
-<%= link_to 'Home', root_path %>
