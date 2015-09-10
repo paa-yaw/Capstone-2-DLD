@@ -1,5 +1,6 @@
 class ArtworksController < ApplicationController
 	before_action :find_artwork, only: [:show, :edit, :update, :destroy, :like]
+  before_action :authenticate_user!, except: [:index, :show]
 	def index
 		@artworks=Artwork.all.order('created_at DESC')
 	end

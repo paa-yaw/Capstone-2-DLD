@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
 	def create
 		@artwork=Artwork.find(params[:artwork_id])
 		@comment=Comment.create(comment_params)
