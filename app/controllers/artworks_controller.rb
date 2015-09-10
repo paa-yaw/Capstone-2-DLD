@@ -11,11 +11,11 @@ class ArtworksController < ApplicationController
 	end
 
 	def new
-		@artwork=Artwork.new
+		@artwork=current_user.artworks.build
 	end
 
 	def create
-		@artwork=Artwork.new(artwork_params)
+		@artwork=current_user.artworks.build(artwork_params)
 
 		if @artwork.save
 			redirect_to @artwork
