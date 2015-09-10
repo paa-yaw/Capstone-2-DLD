@@ -1,6 +1,8 @@
 <h1> This is an index</h1>
 <% if user_signed_in? %>
+<% if current_user.artist? %>
 <%= link_to 'Upload your artwork here!', new_artwork_path %>
+<% end %>
 <% end %>
 <br>
 
