@@ -5,8 +5,9 @@
 <% @artworks.each do |artwork| %>
 	<%= link_to (image_tag artwork.image.url(:medium)), artwork %>
 	<%= link_to artwork.caption, artwork %>
+	<%= pluralize(artwork.likes.count, "Like") %>
 	<%= pluralize(artwork.comments.count, "Comment") %>
-	
+
 <% end %>
 
 

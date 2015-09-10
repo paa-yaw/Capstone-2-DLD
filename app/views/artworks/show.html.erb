@@ -4,6 +4,10 @@
 <%= @artwork.caption %>
 <%= @artwork.description %>
 <br>
+
+<%= social_share_button_tag(@artwork.caption) %>
+
+
 <%= pluralize(@artwork.likes.count, "Like") %>
 
 <%= button_to 'Like', like_artwork_path, method: :post %>
