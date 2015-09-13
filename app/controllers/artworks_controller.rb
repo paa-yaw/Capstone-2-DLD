@@ -3,7 +3,12 @@ class ArtworksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
 	def index
+    if params[:category].blank?
 		@artworks=Artwork.all.order('created_at DESC')
+    else
+      @category_id= Category.find_by(name: params[:category]).id
+      @artworks= Artwork.where(category: @category_id).order('created_at DESC')
+    end
 	end
 
 	def show
@@ -57,6 +62,6 @@ class ArtworksController < ApplicationController
 	end
 
 	def artwork_params
-		params.require(:artwork).permit(:caption, :description, :image)
+		params.require(:artwork).permit(:caption, :description, :image, :category_id)
 	end
 end

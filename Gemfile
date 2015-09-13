@@ -7,6 +7,13 @@ gem 'simple_form', '~> 3.1.1'
 gem 'paperclip', '~>4.3.0'
 gem 'social-share-button', '~> 0.1.6'
 gem 'devise', '~>3.5.2'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+gem 'pry'
+
+
 
 # Use postgresql as the database for Active Record
 gem 'pg'
