@@ -1,0 +1,7 @@
+<h2>Create a new user</h2>
+<%= form_tag action: :create do |f| %>
+  <div><%= text_field :email, nil, name: "artist[email]", placeholder: "Artist's email address" %></div>
+  <div><%= text_field :username, nil, name: "artist[username]", placeholder: "Artist's username" %></div>
+  <div><%= submit_tag nil, value: "Create new artist" %></div>
+<% end %>
+
