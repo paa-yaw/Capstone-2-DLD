@@ -11,6 +11,7 @@
 	<%= link_to artwork.caption, artwork %>
 	<%= pluralize(artwork.likes.count, "Like") %>
 	<%= pluralize(artwork.comments.count, "Comment") %>
+  <%= artwork.user.username %>
 
 <% end %>
 

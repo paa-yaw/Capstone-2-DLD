@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 	def create
 		@artwork=Artwork.find(params[:artwork_id])
-		@comment=Comment.create(comment_params)
+		@comment=current_user.comments.build(comment_params)
 		@comment.artwork_id=@artwork.id 
 
 		if @comment.save

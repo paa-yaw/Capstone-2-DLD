@@ -1,5 +1,7 @@
 <%= link_to 'Home', root_path %>
 <br>
+<%= @artwork.user.username %>
+<%= @artwork.updated_at %>
 <%= image_tag @artwork.image.url(:large) %>
 <%= @artwork.caption %>
 <%= @artwork.description %>
@@ -16,6 +18,7 @@
 <p>Comments</p>
 
 <% @comments.each do |comment| %>
+<%= comment.user.username %>
 <%= comment.content %>
 <% end %>
 

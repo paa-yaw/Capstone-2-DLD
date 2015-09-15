@@ -22,7 +22,7 @@ class Admin::UsersController < ApplicationController
     if @user.save
       # TODO: Email them their password, which is captured in raw_password.
       # Success flash message
-      redirect_to root_path, notice: 'Artist successfully created!'
+      redirect_to admin_users_path, notice: 'Artist successfully created!'
     else
       # Error flash message
       render 'new'

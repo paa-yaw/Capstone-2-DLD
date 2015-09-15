@@ -20,6 +20,7 @@
 <% else %>
 <% if user_signed_in? %>
 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: {confirm: 'Do you want to log out?'}%>
+<%= current_user.username %> is signed in
 <% else %>
 <%= link_to 'Become an artlover!', new_user_registration_path %>
 <%= link_to 'Log In', new_user_session_path %>
@@ -32,7 +33,7 @@
 
 
 <% if admin_signed_in? %>
-<%= link_to'Admin ONLY!', new_admin_user_path %>
+<%= link_to'Create Artist. Admin ONLY!', new_admin_user_path %>
 <% end %>
 
 

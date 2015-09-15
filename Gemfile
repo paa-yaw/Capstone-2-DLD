@@ -13,6 +13,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'pry'
 
+group :development do
+  gem 'capistrano-rails', '~> 1.1.1'
+end
+
 
 
 # Use postgresql as the database for Active Record
