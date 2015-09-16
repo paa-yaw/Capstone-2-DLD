@@ -40,10 +40,10 @@ class ArtworksController < ApplicationController
 		end
 	end
 
-	def destroy
-		@artwork.destroy
-		redirect_to root_path
-	end
+	# def destroy
+	# 	@artwork.destroy
+	# 	redirect_to root_path
+	# end
 
 	def upvote
     @artwork.upvote_by current_user
