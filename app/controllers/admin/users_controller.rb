@@ -20,6 +20,7 @@ class Admin::UsersController < ApplicationController
     @user.artist= true
 
     if @user.save
+      #ArtistMailer.sign_up_artist(@user).deliver_now
       # TODO: Email them their password, which is captured in raw_password.
       # Success flash message
       redirect_to admin_users_path, notice: 'Artist successfully created!'
