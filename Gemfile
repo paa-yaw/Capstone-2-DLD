@@ -12,6 +12,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'pry'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development do
   gem 'capistrano-rails', '~> 1.1.1'

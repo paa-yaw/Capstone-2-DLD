@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
    resources :artworks do 
     member do 
-      post 'like'
+     get "like", to: "artworks#upvote"
+     get "dislike", to: "artworks#downvote"
     end
     resources :comments
   end

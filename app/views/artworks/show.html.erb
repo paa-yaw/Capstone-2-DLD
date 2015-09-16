@@ -5,14 +5,14 @@
 <%= image_tag @artwork.image.url(:large) %>
 <%= @artwork.caption %>
 <%= @artwork.description %>
+<%= pluralize(@artwork.get_upvotes.size, 'Like') %>
+<%= link_to 'like', like_artwork_path(@artwork), method: :get %>
 <br>
 
 <%= social_share_button_tag(@artwork.caption) %>
 
 
-<%= pluralize(@artwork.likes.count, "Like") %>
 
-<%= button_to 'Like', like_artwork_path, method: :post %>
 
 <%= pluralize(@artwork.comments.count, "Comment") %>
 <p>Comments</p>

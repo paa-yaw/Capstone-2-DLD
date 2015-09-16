@@ -1,5 +1,5 @@
 class ArtworksController < ApplicationController
-	before_action :find_artwork, only: [:show, :edit, :update, :destroy, :like]
+	before_action :find_artwork, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
   
 	def index
@@ -13,7 +13,6 @@ class ArtworksController < ApplicationController
 
 	def show
 		@comments=Comment.where(artwork_id: @artwork)
-		@like=Like.where(artwork_id: @artwork)
 	end
 
 	def new
@@ -46,14 +45,15 @@ class ArtworksController < ApplicationController
 		redirect_to root_path
 	end
 
-	def like
-		@like=Like.new(artwork: @artwork)
+	def upvote
+    @artwork.upvote_by current_user
+    redirect_to :back
+  end
 
-		if @like.save
-			redirect_to @artwork
-		end		
-	end
-
+  def downvote
+    @artwork.downvote_by current_user
+    redirect_to :back
+  end
 	
 	private
 
