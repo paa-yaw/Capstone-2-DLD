@@ -19,6 +19,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 # end
 group :production do
   gem 'thin'
+  gem 'rails_12factor'
 end
 
 
