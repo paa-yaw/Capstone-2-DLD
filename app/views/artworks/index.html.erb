@@ -11,9 +11,7 @@
 	<%= link_to artwork.caption, artwork %>
 	
 	<%= pluralize(artwork.comments.count, "Comment") %>
-  <% if user_signed_in? %>
-  <%= artwork.user.username %>
-  <% end %>
+  
   <%= pluralize(artwork.get_upvotes.size, 'Like') %>
 <% end %>
 
