@@ -13,14 +13,25 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :username
 
     devise_parameter_sanitizer.for(:account_update) << :profile_pic
+
+
+    devise_parameter_sanitizer.for(:sign_up) << :artist
   end
 
   def after_sign_up_path_for(resource)
+    if current_user.artist?
+    root_path
+    else
     artworks_path
+    end
   end
 
   def after_sign_in_path_for(resource)
+    if current_user.artist?
+      root_path
+    else
     artworks_path
+    end
   end
 
 end
