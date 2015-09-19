@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:new, :create, :destroy]
   end
 
-  devise_for :users  
+  devise_for :users 
   
 
    resources :artworks do 
@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-     get 'artworks/purchase'=> 'artworks#purchase'
-     root 'artworks#index'
+     get 'artworks/index'=> 'artworks#index'
+     root 'landing#landing'
    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

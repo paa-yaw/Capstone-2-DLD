@@ -8,8 +8,7 @@
 </head>
 <body>
 
-
-<%= link_to 'All Articles', root_path %>
+<%= link_to 'Gallery', artworks_path %>
 <% Category.all.each do |category| %>
 <%= link_to category.name, artworks_path(category: category.name) %>
 <% end %>

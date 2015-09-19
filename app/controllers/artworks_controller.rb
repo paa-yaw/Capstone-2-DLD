@@ -1,5 +1,5 @@
 class ArtworksController < ApplicationController
-	before_action :find_artwork, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :purchase]
+	before_action :find_artwork, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
   
 	def index
@@ -55,13 +55,6 @@ class ArtworksController < ApplicationController
   #   redirect_to :back
   # end
 
-  def purchase
-    if current_user
-      render 'purchase'
-    else
-      redirect_to :back
-    end
-  end
 	
 	private
 
