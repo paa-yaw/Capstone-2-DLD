@@ -1,6 +1,8 @@
 <%= link_to 'Home', root_path %>
 <br>
+<% if current_user.artist? %>
 <%= @artwork.user.username %>
+<% end %>
 <%= @artwork.updated_at %>
 <%= image_tag @artwork.image.url(:large) %>
 <%= @artwork.caption %>

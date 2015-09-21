@@ -12,7 +12,9 @@
 	
 	<%= pluralize(artwork.comments.count, "Comment") %>
   <% if user_signed_in? %>
+  <% if current_user.artist%>
   <%= artwork.user.username %>
+  <% end %>
   <% end %>
   <%= pluralize(artwork.get_upvotes.size, 'Like') %>
 <% end %>
