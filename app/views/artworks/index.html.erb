@@ -13,6 +13,7 @@
 	<%= pluralize(artwork.comments.count, "Comment") %>
   
   <%= pluralize(artwork.get_upvotes.size, 'Like') %>
+  GH <%= number_to_currency(artwork.price) %>
 <% end %>
 
 

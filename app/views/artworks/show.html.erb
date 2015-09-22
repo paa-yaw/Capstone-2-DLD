@@ -4,6 +4,7 @@
 <%= @artwork.description %>
 <%= pluralize(@artwork.get_upvotes.size, 'Like') %>
 <%= link_to 'like', like_artwork_path(@artwork), method: :get %>
+GH <%= number_to_currency(@artwork.price) %>
 <%= link_to 'Buy' %>
 <br>
 
