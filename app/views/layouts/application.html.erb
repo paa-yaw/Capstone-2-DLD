@@ -20,6 +20,7 @@
 <% else %>
 <% if user_signed_in? %>
 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: {confirm: 'Do you want to log out?'}%>
+<%= link_to 'Profile/Settings', edit_user_registration_path %>
 <%= current_user.username %> is signed in
 <% else %>
 <%= link_to 'Become an artlover!', new_user_registration_path %>
@@ -28,6 +29,11 @@
 <% end %>
 <% end %>
 
+<% if user_signed_in?%>
+<% if current_user.artist?%>
+<%= image_tag current_user.profile_pic.url(:small) %>
+<% end %>
+<% end %>
 
 
 
