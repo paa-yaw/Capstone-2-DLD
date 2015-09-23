@@ -22,7 +22,11 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'normalize-rails', '~> 3.0.3'
 
+gem 'bootstrap-sass', '~> 3.3.5'
+
+gem 'font-awesome-sass', '~> 4.4.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

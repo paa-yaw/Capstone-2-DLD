@@ -1,20 +1,53 @@
-<h1> This is an index</h1>
-<% if user_signed_in? %>
-<% if current_user.artist? %>
-<%= link_to 'Upload your artwork here!', new_artwork_path %>
-<% end %>
-<% end %>
+<% #if user_signed_in? %>
+<%# if current_user.artist? %>
+<%#= link_to 'Upload your artwork here!', new_artwork_path %>
+<%# end %>
+<%# end %>
 <br>
+<div class="container">
+  <section>
+    <div class="page-header"></div>
+    <div class="row">
+      <% @artworks.each do |artwork| %>
+      <div class ="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="panel panel-default">
+          <div class="panel-bodyy">
+            <%=link_to (image_tag artwork.image.url(:medium), class: 'img-responsive'), artwork %>
+          </div>
+          <div class="panel-footer">
+            <p><%=link_to artwork.caption,artwork,class: 'caption'%></p>
+            <hr>
+            <p>Artwork by
+            <%= artwork.user.username %></p>
+            <%#= pluralize(artwork.likes.count, "Like") %>
+            <div class="row">
+            <div class="pull-left">
+               <p> GH <%= artwork.price %></p>
+            </div>
+            <div class="pull-right">
+              <span class="icon" id="icon">
+              <%= artwork.get_upvotes.size %>
+              <%= link_to  like_artwork_path(artwork), method: :get, class: 'data' do%>
+                 <i class="fa fa-heart-o"></i>
+                 <% end %>
+                <%= link_to artwork.comments.count %> <i class="fa fa-comment-o"></i>
+              </span> 
+            </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %> 
+    </div>
+  </section>
+</div>
 
-<% @artworks.each do |artwork| %>
-	<%= link_to (image_tag artwork.image.url(:medium)), artwork %>
-	<%= link_to artwork.caption, artwork %>
-	
-	<%= pluralize(artwork.comments.count, "Comment") %>
-  
-  <%= pluralize(artwork.get_upvotes.size, 'Like') %>
-  GH <%= number_to_currency(artwork.price) %>
-<% end %>
+
+
+
+
+
 
 
 	

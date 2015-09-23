@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :artworks
   has_many :comments
+  has_many :purchases
 
   has_attached_file :profile_pic, styles: {small: "50x50",medium: "300x300#", large: "600x500>"}
   validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/

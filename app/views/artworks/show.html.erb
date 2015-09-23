@@ -1,18 +1,39 @@
-<%= @artwork.updated_at %>
-<%= image_tag @artwork.image.url(:large) %>
-<%= @artwork.caption %>
-<%= @artwork.description %>
-<%= pluralize(@artwork.get_upvotes.size, 'Like') %>
-<%= link_to 'like', like_artwork_path(@artwork), method: :get %>
-GH <%= number_to_currency(@artwork.price) %>
-<%= link_to 'Buy' %>
-<br>
+<div id="artwork_show">
+  <h1>
+    <%= @artwork.caption%>
+  </h1>
+  <h3 class="artistname">
+    Shared by
+    <%= @artwork.user.username %>
+    about
+    <%= time_ago_in_words(@artwork.created_at)%>
+    ago
+  </h3>
+  
+  <div class="clearfix">
+    <div class="artwork_content1">
+      <%= image_tag @artwork.image.url(:large) %>
+      <%= @artwork.description %>
+    </div>
 
-<%= social_share_button_tag(@artwork.caption) %>
+    <div class="artwork_data">
+      <%= @artwork.get_upvotes.size %>
+      <%= link_to  like_artwork_path(@artwork), method: :get, class: 'data' do%>
+      <i class="fa fa-heart-o"></i>
+      <% end %>
 
+      <p class="data">
+       <%= link_to @artwork.comments.count %> <i class="fa fa-comment-o"></i>
+     </p>
+     GH <%= @artwork.price %>
+     <%= link_to 'Buy', artwork_purchases_path(@artwork), method: :post %>
+     <br>
 
+     <%= social_share_button_tag(@artwork.caption) %>
 
-
+   </div>
+ </div>
+</div>
 <%= pluralize(@artwork.comments.count, "Comment") %>
 <p>Comments</p>
 
@@ -27,6 +48,7 @@ GH <%= number_to_currency(@artwork.price) %>
 <% if current_user.artist? %>
 <%= link_to 'Edit', edit_artwork_path(@artwork) %>
 <%= link_to 'Delete', artwork_path(@artwork), 
-							method: :delete, data: {confirm: 'Are you sure?'} %>
+method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
 <% end %>
+
