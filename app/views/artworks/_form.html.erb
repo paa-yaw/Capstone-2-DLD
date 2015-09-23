@@ -1,3 +1,10 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Upload your artwork</h2>
+      </div>
+      <div class="panel-body">
 <%= simple_form_for @artwork  do |f| %>
   <%= f.collection_select :category_id, Category.all, :id, :name, {promt: "select a category"} %>
 	<%= f.input :image %>
@@ -7,5 +14,9 @@
 	
 	<%= f.button :submit %>
 <% end %>
+</div>
+</div>
+</div>
+</div>
 
 

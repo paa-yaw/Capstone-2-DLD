@@ -23,7 +23,7 @@
       <% end %>
 
       <p class="data">
-       <%= link_to @artwork.comments.count %> <i class="fa fa-comment-o"></i>
+       <%= @artwork.comments.count %> <i class="fa fa-comment-o"></i>
      </p>
      GH <%= @artwork.price %>
      <%= link_to 'Buy', artwork_purchases_path(@artwork), method: :post %>
