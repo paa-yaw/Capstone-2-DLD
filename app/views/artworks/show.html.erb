@@ -1,68 +1,70 @@
- <div class="col-md-8 col-md-offset-4">
- <class="label label-primary"> <%= link_to 'Gallery', artworks_path, class: "label label-primary" %>
-  <% Category.all.each do |category| %>
-  <%= link_to category.name, artworks_path(category: category.name),class: "label label-primary"%>
-  <% end %></class="label">
-</div>
-  <div id="artwork_show">
-    <h1>
-      <%= @artwork.caption%>
-    </h1>
-    <h3 class="artistname">
-      Shared by
-      <%= @artwork.user.username %>
-      about
-      <%= time_ago_in_words(@artwork.created_at)%>
-      ago
-    </h3>
 
-    <div class="clearfix">
-      <div class="artwork_content1">
-        <%= image_tag @artwork.image.url(:large) %>
-        <br>
-        <%= @artwork.description %>
-      </div>
+<div class="container">
+  <div class="col-md-8 col-md-offset-4">
+   <class="label label-primary"> <%= link_to 'Gallery', artworks_path, class: "label label-primary" %>
+   <% Category.all.each do |category| %>
+   <%= link_to category.name, artworks_path(category: category.name),class: "label label-primary"%>
+   <% end %></class="label">
+ </div>
+ <div id="artwork_show">
+  <h1>
+    <%= @artwork.caption%>
+  </h1>
+  <h3 class="artistname">
+    Shared by
+    <%= @artwork.user.username %>
+    about
+    <%= time_ago_in_words(@artwork.created_at)%>
+    ago
+  </h3>
 
-      <div class="artwork_data">
-        <%= link_to  like_artwork_path(@artwork), method: :get, class: 'data' do%>
-        <i class="fa fa-heart-o fa-2x"></i>
-        <% end %> <%= @artwork.get_upvotes.size %>
+  <div class="clearfix">
+    <div class="artwork_content1">
+      <%= image_tag @artwork.image.url(:large), class: "img-responsive" %>
+      <br>
+      <%= @artwork.description %>
+    </div>
 
-        <hr>
+    <div class="artwork_data">
+      <%= link_to  like_artwork_path(@artwork), method: :get, class: 'data' do%>
+      <i class="fa fa-heart-o fa-2x"></i>
+      <% end %> <%= @artwork.get_upvotes.size %>
 
-        <p class="data">
-         <i class="fa fa-comment-o fa-2x"></i>
-         <%= @artwork.comments.count %>
-       </p>
+      <hr>
+
+      <p class="data">
+       <i class="fa fa-comment-o fa-2x"></i>
+       <%= @artwork.comments.count %>
+     </p>
+     <hr>
+     <%= number_to_currency(@artwork.price) %>
+
+     <%= link_to artwork_purchases_path(@artwork), method: :post do %>
+     <i class="fa fa-cart-arrow-down fa-2x"></i>
+     <% end %>
+     <br>
+     <h3>
+       Share:
+       <%= social_share_button_tag(@artwork.caption) %>
+     </h3>
+
+     <% if user_signed_in? %>
+     <% if current_user.artist?  %>
+     <p>
+       <%= link_to 'Edit', edit_artwork_path(@artwork), class: 'btn btn-primary' %><br>
        <hr>
-       <%= number_to_currency(@artwork.price) %>
+       <%= link_to 'Delete',artwork_path(@artwork), method: :delete,
+       data: {confirm: 'Are you sure?'}, class: 'btn btn-primary'%>
+     </p>
+     <% end %>
+     <% end %>
 
-       <%= link_to artwork_purchases_path(@artwork), method: :post do %>
-       <i class="fa fa-cart-arrow-down fa-2x"></i>
-       <% end %>
-       <br>
-       <h3>
-         Share:
-         <%= social_share_button_tag(@artwork.caption) %>
-       </h3>
-
-       <% if user_signed_in? %>
-       <% if current_user.artist?  %>
-       <p>
-         <%= link_to 'Edit', edit_artwork_path(@artwork), class: 'btn btn-primary' %><br>
-         <hr>
-         <%= link_to 'Delete',artwork_path(@artwork), method: :delete,
-         data: {confirm: 'Are you sure?'}, class: 'btn btn-primary'%>
-       </p>
-       <% end %>
-       <% end %>
-
-     </div>
    </div>
  </div>
+</div>
 
- <div id="comment">
-  <div class="comment_count"><h2><%= pluralize(@artwork.comments.count, "Comment") %></h2></div>
+<div id="comment">
+  <div class="comment_count"><h3><%= pluralize(@artwork.comments.count, "Comment") %></h3></div>
 
   <p>Comments</p>
   <% @comments.each do |comment| %>
@@ -76,6 +78,8 @@
     <%= render 'comments/form' %>
   </div>
 </div>
+</div>
+ 
 
 <% #if user_signed_in? %>
 <% #if current_user.artist? %>
