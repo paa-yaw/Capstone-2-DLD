@@ -20,6 +20,7 @@
           </button>
           <ul class="navbar-brand page-scroll">
             <%= link_to 'Logo', root_path %>
+
           </ul>
         </div> 
         
@@ -33,41 +34,42 @@
             </div>
           </form>
 
+
           <% if user_signed_in? %> 
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to  root_path do %>
-            <i class="fa fa-home fa-2x"></i>
-            <% end %></li>
-            <% if current_user.artist %>
-             <li><%= link_to  new_artwork_path do %>
-             <i class="fa fa-upload fa-2x"></i>
-             <% end %>
-             <% end %></li>
-            <li><%= link_to  destroy_user_session_path, :method => :delete, data: {confirm: 'Do you want to log out?'} do %> 
-            <i class="fa fa-sign-out fa-2x"></i>
-            <% end %></li>
-            <li><%= link_to  edit_user_registration_path do %>
-            <i class="fa fa-user fa-2x"></i> 
-            <% end %></li>
-            <!-- <li><%= current_user.username %> <p>is signed in</p></li> -->
-          </ul>
-          <% else %>
+              <i class="fa fa-home fa-2x"></i>
+              <% end %></li>
+              <% if current_user.artist %>
+              <li><%= link_to  new_artwork_path do %>
+               <i class="fa fa-upload fa-2x"></i>
+               <% end %>
+               <% end %></li>
+               <li><%= link_to  destroy_user_session_path, :method => :delete, data: {confirm: 'Do you want to log out?'} do %> 
+                <i class="fa fa-sign-out fa-2x"></i>
+                <% end %></li>
+                <li><%= link_to  edit_user_registration_path do %>
+                  <i class="fa fa-user fa-2x"></i> 
+                  <% end %></li>
+                  <!-- <li><%= current_user.username %> <p>is signed in</p></li> -->
+                </ul>
+                <% else %>
 
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to  root_path do %>
-            <i class="fa fa-home fa-2x"></i>
-            <% end %></li>
-            <li><%= link_to 'Log In', new_user_session_path %></li>
-          </ul>
-          <%= link_to 'Be an artlover!', new_user_registration_path, class: 'btn btn-primary navbar-btn navbar-right' %>
-          <% end %>
-          
-        </div>
-      </div>
-    </div>
-  </nav>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to  root_path do %>
+                    <i class="fa fa-home fa-2x"></i>
+                    <% end %></li>
+                    <li><%= link_to 'Log In', new_user_session_path %></li>
+                  </ul>
+                  <%= link_to 'Be an artlover!', new_user_registration_path, class: 'btn btn-primary navbar-btn navbar-right' %>
+                  <% end %>
 
-  <div class="clearfix visible-lg"></div>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <div class="clearfix visible-lg"></div>
 
  <!--  <% if admin_signed_in? %>
   <% else %>
@@ -82,16 +84,7 @@
   <%= link_to 'Sign Up As an Artist', new_user_registration_path %> 
   <% end %>
   <% end %>
- -->
-
-
-
-
-
-  <%= link_to 'Gallery', artworks_path %>
-  <% Category.all.each do |category| %>
-  <%= link_to category.name, artworks_path(category: category.name) %>
-  <% end %>
+-->
 
 
 
@@ -101,27 +94,31 @@
 
 
 
-  <% if admin_signed_in? %>
-  <%= link_to'Create Artist. Admin ONLY!', new_admin_user_path %>
-  <% end %>
 
 
-  <% if admin_signed_in? %>
-  <%= link_to 'Admin Sign Out', destroy_admin_session_path, method: :delete,
-  data: {confirm: 'Are you sure?'} %>
-  <%= link_to 'View artists. Admin ONLY!', admin_users_path %>
-  <% end %>
 
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-  <div class="container">
-    <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "alert alert-info"  %>
-    <% end %>
-    <%= yield %>
-  </div>
+
+<% if admin_signed_in? %>
+<%= link_to'Create Artist. Admin ONLY!', new_admin_user_path %>
+<% end %>
+
+
+<% if admin_signed_in? %>
+<%= link_to 'Admin Sign Out', destroy_admin_session_path, method: :delete,
+data: {confirm: 'Are you sure?'} %>
+<%= link_to 'View artists. Admin ONLY!', admin_users_path %>
+<% end %>
+
+
+<!-- <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p> -->
+
+<div class="container" style="margin-top: 90px;">
+
+  <%= yield %>
+</div>
 
 
 </body>
