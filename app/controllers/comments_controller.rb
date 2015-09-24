@@ -12,6 +12,12 @@ class CommentsController < ApplicationController
 		end
 	end
 
+  def destroy
+    @artwork=Artwork.find(params[:artwork_id])
+    @comment=@artwork.comments.find(params[:id])
+    @comment.destroy
+    redirect_to @artwork
+  end
 	
 
 
