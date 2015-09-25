@@ -30,21 +30,22 @@
     <div class="artwork_data">
       <%= link_to  like_artwork_path(@artwork), method: :get, class: 'data' do%>
       <i class="fa fa-heart-o fa-2x"></i>
-      <% end %> <%= @artwork.get_upvotes.size %>
+      <% end %> <span class="votes"><%= @artwork.get_upvotes.size %></span>
 
 
         <p class="data">
          <i class="fa fa-comment fa-2x"></i>
-         <%= @artwork.comments.count %>
+         <span class="commentt"><%= @artwork.comments.count %></span>
        </p>
        <hr>
-       <%= number_to_currency(@artwork.price) %>
+
+       <span class="price"><%= number_to_currency(@artwork.price)%></span>
 
 
      
 
      <%= link_to artwork_purchases_path(@artwork), method: :post do %>
-     <i class="fa fa-cart-arrow-down fa-2x"></i>
+     <i class="fa fa-cart-arrow-down fa-3x"></i>
      <% end %>
      <br>
      <h3>

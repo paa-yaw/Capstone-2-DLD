@@ -18,18 +18,21 @@
             <span class="icon-bar bar2"></span>
             <span class="icon-bar bar3"></span>
           </button>
-          <ul class="navbar-brand page-scroll">
-            <%= link_to 'Afrikart', root_path %>
+          <ul class="navbar-brand page-scroll pull">
+            <%= link_to image_tag('afrikart.logo.png'), root_path, id: "logo" %>
 
           </ul>
         </div> 
-        
-       <%= form_tag search_artworks_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
+       
+<div class="navbar-left navbar-form" role= "search">
+       <%= form_tag search_artworks_path, method: :get, class: "search-form"  do %>
         <p>
           <%= text_field_tag :search, params[:search], class: "form-control"%>
           <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
         </p> 
         <% end %>
+</div>
+
         <!-- <div class="collapse navbar-collapse navbar-ex1-collapse">
           <form class="navbar-form navbar-left" role="search">
             <div class="input-group">
