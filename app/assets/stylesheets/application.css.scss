@@ -16,19 +16,23 @@
  */
 
  @import "bootstrap-sprockets";
-@import "bootstrap";
+ @import "bootstrap";
 
-@import "font-awesome-sprockets";
-@import "font-awesome";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
 
-body {
+ body {
   background: #E5E5E5;
-  
+
+  width: 100%;
+  height: 100%;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
+  color: #fff;
 }
 
 nav {
@@ -76,10 +80,10 @@ nav {
 
 #edit_page {
   .current_artwork {
-  img {
-  display: block;
-  margin: 20px 0;
-  }
+    img {
+      display: block;
+      margin: 20px 0;
+    }
   }
 }
 
@@ -95,49 +99,81 @@ nav {
     }
   }
 
-.panel-bodyy{
-  padding: 2px;
-  border-radius: 0.3rem;
-  border: 1px solid #E4E4E4;
+  .panel-bodyy{
+    padding: 2px;
+    border-radius: 0.3rem;
+    border: 1px solid #E4E4E4;
 
-}
+  }
 
-.panel-default{
-  border: 1px solid #D3A943;
-}
+  .panel-default{
+    border: 1px solid #D3A943;
+  }
 
-.panel-footer {
+  .panel-footer {
     padding: 10px 15px;
     background-color: whitesmoke;
     border-top: 1px solid #D3A943;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-}
-
-.artwork_content1 {
-      width: 50%;
-      float: left;
-      margin-right: 5%;
-    }
-
-    .artwork_data {
-      width: 15%;
-      float: left;
-      }
-
-
   }
 
-  .pos{
-        position: absolute;
-      }
+  .artwork_content1 {
+    width: 50%;
+    float: left;
+    margin-right: 5%;
+  }
 
-      .artistname {
-        font-size: 1.8rem;
-        color: #333233;
-        margin: 0 0 .5rem 0;
-      }
+  .artwork_data {
+    width: 15%;
+    float: left;
+  }
 
-      .label-primary{
-      font-size: 17px;
-      }
+
+}
+
+.pos{
+  position: absolute;
+}
+
+.artistname {
+  font-size: 1.8rem;
+  color: #333233;
+  margin: 0 0 .5rem 0;
+}
+
+.label-primary{
+  font-size: 17px;
+}
+
+.carousel-inner > .item > img{
+ width:100%;
+ height:350px;
+ background-color: #000;
+  opacity: 0.9;
+
+}
+
+.space{
+  margin-top: 62px;
+}
+
+.carousel-caption{
+  width: 600px;
+  height: 100px;
+  background-color: #000;
+  opacity: 0.7;
+  margin-bottom: 10%;
+  border-radius: 3px;
+}
+
+h2{
+  margin-top: 12px;
+}
+
+#header{
+  color: #000;
+}
+h3{
+  color: black;
+}
