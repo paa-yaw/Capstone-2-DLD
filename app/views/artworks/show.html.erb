@@ -81,7 +81,7 @@
     <div class="username"> <h3><strong><%= comment.user.username %></strong></h3></div>
     <div class="content"><p><%= comment.content %></p></div>
     <br>
-    <%= link_to 'Delete', [comment.artwork, comment], method: :delete, data: {confirm: 'Do you want to delete this comment?'}, class: 'btn btn-primary ' %>
+    <%#= link_to 'Delete', [comment.artwork, comment], method: :delete, data: {confirm: 'Do you want to delete this comment?'}, class: 'btn btn-primary ' %>
     <% end %>
 
     <%= render 'comments/form' %>
