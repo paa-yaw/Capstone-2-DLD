@@ -78,7 +78,7 @@ Rails.application.configure do
 
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-
+  #using mailing services from sendgrid
   ActionMailer::Base.smtp_settings = {
   :user_name => 'your_sendgrid_username',
   :password => 'your_sendgrid_password',
@@ -87,5 +87,15 @@ Rails.application.configure do
   :port => 587,
   :authentication => :plain,
   :enable_starttls_auto => true
+}
+
+#storage service from Amazon
+config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['S3_BUCKET_NAME'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  }
 }
 end

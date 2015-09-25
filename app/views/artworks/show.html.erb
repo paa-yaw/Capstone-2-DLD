@@ -25,13 +25,13 @@
 
       <div class="artwork_data">
         <%= link_to  like_artwork_path(@artwork), method: :get, class: 'data' do%>
-        <i class="fa fa-heart-o fa-2x"></i>
+        <i class="fa fa-heart fa-2x"></i>
         <% end %> <%= @artwork.get_upvotes.size %>
 
         <hr>
 
         <p class="data">
-         <i class="fa fa-comment-o fa-2x"></i>
+         <i class="fa fa-comment fa-2x"></i>
          <%= @artwork.comments.count %>
        </p>
        <hr>

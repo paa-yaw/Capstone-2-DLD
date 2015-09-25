@@ -1,6 +1,15 @@
 class ArtworksController < ApplicationController
 	before_action :find_artwork, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
+
+
+  def search
+    if params[:search].present?
+      @artworks= Artwork.search(params[:search])
+    else
+      @artworks=Artwork.all
+    end
+  end
   
 	def index
     if params[:category].blank?

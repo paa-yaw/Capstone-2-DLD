@@ -24,7 +24,13 @@
           </ul>
         </div> 
         
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+       <%= form_tag search_artworks_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
+        <p>
+          <%= text_field_tag :search, params[:search], class: "form-control"%>
+          <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+        </p> 
+        <% end %>
+        <!-- <div class="collapse navbar-collapse navbar-ex1-collapse">
           <form class="navbar-form navbar-left" role="search">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search for artworks,artists " name="q">
@@ -32,7 +38,7 @@
                 <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
               </div>
             </div>
-          </form>
+          </form> -->
 
 
           <% if user_signed_in? %> 

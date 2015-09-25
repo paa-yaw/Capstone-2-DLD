@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   
 
    resources :artworks do 
+    collection do 
+      get 'search'
+    end
     resources :purchases
     member do 
      get "like", to: "artworks#upvote"

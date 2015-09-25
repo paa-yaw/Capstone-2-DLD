@@ -13,6 +13,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'pry'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'searchkick', '~>0.8.3'
+gem 'aws-sdk'
 
 # group :development do
 #   gem 'capistrano-rails', '~> 1.1.1'
