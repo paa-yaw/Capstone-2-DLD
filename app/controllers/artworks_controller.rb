@@ -22,6 +22,7 @@ class ArtworksController < ApplicationController
 
 	def show
 		@comments=Comment.where(artwork_id: @artwork)
+    @artworks=Artwork.all.order('created_at DESC')
 	end
 
 	def new

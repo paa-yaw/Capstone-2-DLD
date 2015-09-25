@@ -22,7 +22,7 @@
  @import "font-awesome";
 
 
- body {
+ body, html {
   background: #E5E5E5;
 
   width: 100%;
@@ -161,7 +161,6 @@ nav {
 .carousel-caption{
   width: 600px;
   height: 100px;
-  background-color: #000;
   opacity: 0.7;
   margin-bottom: 10%;
   border-radius: 3px;
@@ -191,4 +190,74 @@ h3{
 
 .price, .votes, .commentt{
   font-size: 20px;
+  padding-right: 8px;
+}
+
+#main-menu{
+      background-color: rgba(248, 248, 248, 0);
+}
+
+
+
+
+.slide1, .slide2, .slide3, .slide4 {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover !important;
+    -o-background-size: cover;
+}
+
+
+.carousel,
+    .item,
+    .active {
+        height: 100%;
+    }
+    /*MORPH*/
+    .morph {
+       -webkit-transition: 1s ease-in-out;
+       -moz-transition: 1s ease-in-out;
+       -o-transition: 1s ease-in-out;
+       transition: 1s ease-in-out;
+       transition-delay: 4s;
+   }
+
+   .morph:hover {
+      -webkit-transform: translate(-25em,0);
+      -moz-transform: translate(-25em,0);
+      -o-transform: translate(-25em,0);
+      -ms-transform: translate(-25em,0);
+      transform: translate(-25em,0);
+
+      -webkit-transform: scale(2);
+      -moz-transform: scale(2);
+      -o-transform: scale(2);
+      -ms-transform: scale(2);
+      transform: scale(2);
+
+  }
+  .carousel-inner {
+   min-height: 400px;
+   height:596px;
+}
+
+.slide1{
+    background: url("a-diegokoi-art-2.jpg") no-repeat center center cadetblue;
+}
+.slide2{
+    background: url("martin.jpg") no-repeat center center cadetblue;
+}
+.slide3{
+    background: url("Beautiful-Painting.jpg") no-repeat center center cadetblue;
+}
+
+.slide4{
+    background: url("horses.jpg") no-repeat center center cadetblue;
 }
