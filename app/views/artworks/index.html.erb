@@ -5,15 +5,6 @@
 <%# end %>
 
 
-<div class="col-sm-8 col-sm-offset-4">
- <class="label label-primary"> <%= link_to 'Gallery', artworks_path, class: "label label-primary" %>
-  <% Category.all.each do |category| %>
-  <%= link_to category.name, artworks_path(category: category.name), class: "label label-primary"%>
-  <% end %></class="label">
-</div>
-
-
-
 <br>
 
 <div class="container" style="margin-top: 20px;">

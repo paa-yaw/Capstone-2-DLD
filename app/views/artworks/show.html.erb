@@ -1,11 +1,5 @@
 
-<div class="container">
-  <div class="col-md-8 col-md-offset-4">
-   <class="label label-primary"> <%= link_to 'Gallery', artworks_path, class: "label label-primary" %>
-   <% Category.all.each do |category| %>
-   <%= link_to category.name, artworks_path(category: category.name),class: "label label-primary"%>
-   <% end %></class="label">
- </div>
+
  <div id="artwork_show">
   <h1>
     <%= @artwork.caption%>
