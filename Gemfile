@@ -14,7 +14,8 @@ gem 'omniauth-linkedin'
 gem 'pry'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'searchkick', '~>0.8.3'
-gem 'aws-sdk'
+gem "aws-sdk", "~> 1.6"
+gem "fakes3", group: [:development, :test]
 
 # group :development do
 #   gem 'capistrano-rails', '~> 1.1.1'

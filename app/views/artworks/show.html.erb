@@ -1,5 +1,5 @@
 <div class="row">
-<div class="col-md-2">
+  <div class="col-md-2">
 
   </div>
 
@@ -24,45 +24,65 @@
 
             </div>
             
-        <div class=" panel panel-default col-md-10">
-          <div class="panel-body">
-          
-          <div class="col-md-12">
-           <h3>
-          <%= @artwork.description %>
-           </h3>
-        </div>
+            <div class=" panel panel-default col-md-10">
+              <div class="panel-body">
 
-        <div class="col-md-12">
-        <hr class="col-md-12">
-          <span class="data pull-right">
-            <%= link_to  like_artwork_path(@artwork), method: :get, class: 'data' do%>
-            <i class="fa fa-heart-o fa-2x"></i>
-            <% end %> <span class="votes"><%= @artwork.get_upvotes.size %></span>
-            <i class="fa fa-comment fa-2x"></i>
-            <span class="commentt"><%= @artwork.comments.count %></span>
-            <span class="price"><%= number_to_currency(@artwork.price)%></span>
-            <%= link_to artwork_purchases_path(@artwork), method: :post do %>
-            <i class="fa fa-cart-arrow-down fa-2x"></i>
-            <% end %>
-          </span>
-        </div>
-        </div>
+                <div class="col-md-12">
+                 <h3>
+                  <%= @artwork.description %>
+                </h3>
+              </div>
+
+              <div class="col-md-12">
+                <hr class="col-md-12">
+                <span class="pull-left">
+                  <% if user_signed_in? %>
+                  <% if current_user.artist?  %>
+                  <p>
+                   <%= link_to  edit_artwork_path(@artwork) do %>
+                   <i class="fa fa-pencil-square fa-2x"></i>
+                   <% end %>
+                   
+                   <%= link_to artwork_path(@artwork), method: :delete,
+                   data: {confirm: 'Are you sure?'} do %>
+                   <i class="fa fa-trash fa-2x"></i>
+                   <% end %>
+                 </p>
+                 <% end %>
+                 <p>
+                     Share:
+                     <%= social_share_button_tag(@artwork.caption) %>
+                   </p>
+                 <% end %>
+               </span>
+               <span class="data pull-right">
+                <%= link_to  like_artwork_path(@artwork), method: :get, class: 'data' do%>
+                <i class="fa fa-heart fa-2x"></i>
+                <% end %> <span class="votes"><%= @artwork.get_upvotes.size %></span>
+                <i class="fa fa-comment fa-2x"></i>
+                <span class="commentt"><%= @artwork.comments.count %></span>
+                <span class="price"><%= number_to_currency(@artwork.price)%></span>
+                <%= link_to artwork_purchases_path(@artwork), method: :post do %>
+                <i class="fa fa-cart-arrow-down fa-2x"></i>
+                <% end %>
+              </span>
+            </div>
           </div>
         </div>
-        </div>
-
-
-        
-
-        <hr class="col-md-8">
       </div>
-
     </div>
 
-    <!-- comments -->
-    <div class="panel panel-default col-md-10">
-    <div id="comment">
+
+
+
+    <hr class="col-md-8">
+  </div>
+
+</div>
+
+<!-- comments -->
+<div class="panel panel-default col-md-10">
+  <div id="comment">
     <div class="panel-body">
       <div class="comment_count"><h3><%= pluralize(@artwork.comments.count, "Comment") %></h3></div>
 
@@ -75,33 +95,33 @@
       <br>
 
 
-      
+
       <div class="comment col-md-12">
-      <hr>
+        <hr>
         <% @comments.each do |comment| %>
         <div class="username"> <h3><strong><%= comment.user.username %></strong></h3></div>
         <div class="content"><p><%= comment.content %></p></div>
         <br>
         <%#= link_to 'Delete', [comment.artwork, comment], method: :delete, data: {confirm: 'Do you want to delete this comment?'}, class: 'btn btn-primary ' %>
         <% end %>
-        
-        
+
+
       </div>
     </div>
   </div>
-  </div>
-  </div>
+</div>
+</div>
 
-  
+
 <div class="col-md-2 ">
-    <div class="row">
-      <% @artworks.each do |artwork| %>
-      <div class="col-xs-3 col-md-6">
-        <%= link_to (image_tag artwork.image.url(:medium), size:'100x100', class: 'thumbnail'), artwork %>
+  <div class="row">
+    <% @artworks.each do |artwork| %>
+    <div class="col-xs-3 col-md-6">
+      <%= link_to (image_tag artwork.image.url(:medium), size:'100x100', class: 'thumbnail'), artwork %>
 
-      </div>
-      <% end %>
     </div>
+    <% end %>
   </div>
+</div>
 
 </div>
