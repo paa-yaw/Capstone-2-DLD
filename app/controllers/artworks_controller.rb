@@ -3,17 +3,19 @@ class ArtworksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
 
-  def search
-    if params[:search].present?
-      @artworks= Artwork.search(params[:search])
-    else
-      @artworks=Artwork.all
-    end
-  end
+  # def search
+  #   # if @q=Artwork.ransack(params[:q])
+  #   #   @artworks= @q.result(distinc: true)
+  #   else
+  #     @artworks=Artwork.all
+  #   end
+  # end
   
 	def index
-    if params[:category].blank?
+  if params[:category].blank?
 		@artworks=Artwork.all.order('created_at DESC')
+    # if @search=Artwork.search(params[:q])
+    #   @artworks = @search.result(distinc: true)
     else
       @category_id= Category.find_by(name: params[:category]).id
       @artworks= Artwork.where(category: @category_id).order('created_at DESC')
